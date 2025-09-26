@@ -3,6 +3,9 @@
 # Make sure we have networking available.
 enable systemd-networkd.service
 enable systemd-networkd.socket
+# wait-online gets overridden in the desktop preset as networkd
+# has no interfaces to manage and so this will fail on boot
+# and block other units waiting on network-online.target
 enable systemd-networkd-wait-online.service
 enable systemd-resolved.service
 

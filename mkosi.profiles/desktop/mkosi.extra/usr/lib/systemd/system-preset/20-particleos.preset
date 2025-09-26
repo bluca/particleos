@@ -1,0 +1,5 @@
+# Given network-manager is enabled in desktop builds and
+# takes over the interfaces, networkd-wait-online will be
+# stuck and fail, breaking units waiting on the network
+# on boot, as networkd manages no interface. Disable it here.
+disable systemd-networkd-wait-online.service
